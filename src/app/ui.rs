@@ -31,7 +31,7 @@ where
         .split(size);
 
     // Title
-    let title: Paragraph = draw_title();
+    let title: Paragraph = draw_title(app.state());
     rect.render_widget(title, chunks[0]);
 
     // Body & Help 
@@ -51,8 +51,13 @@ where
     rect.render_widget(logs, chunks[2]);
 }
 
-fn draw_title<'a>() -> Paragraph<'a> {
-    Paragraph::new("Rust Text Editor")
+fn draw_title<'a>(state: &AppState) -> Paragraph<'a> {
+    let mut title: String = "Rust Text Editor: ".to_owned();
+    title.push_str(&state.get_path());
+    title.push_str(" [");
+    title.push_str(&state.get_all_open_file_names());
+    title.push_str("]");
+    Paragraph::new(title)
         .style(Style::default().fg(Color::LightCyan))
         .alignment(Alignment::Center)
         .block(

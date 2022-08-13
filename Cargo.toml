@@ -8,7 +8,7 @@ repository = "https://github.com/Dhi13man/rust_text_editor"
 
 [dependencies]
 log = "0.4"
-
+copypasta = "0.8.1"
 tui-logger = "0.8.0"
 tui = "0.18.0"
 

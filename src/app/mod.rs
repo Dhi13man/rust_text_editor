@@ -1,11 +1,13 @@
 use log::{debug, error, warn};
 
 use self::actions::Actions;
+use self::open_files_data::OpenFilesData;
 use self::state::AppState;
 use crate::app::actions::Action;
 use crate::inputs::key::Key;
 use crate::io::IoEvent;
 
+pub mod open_files_data;
 pub mod actions;
 pub mod state;
 pub mod ui;
@@ -58,7 +60,32 @@ impl App {
                 Action::EndWriteMode => {
                     self.dispatch(IoEvent::ToggleWriteMode(false)).await;
                     AppReturn::Continue
-                }
+                },
+                // Open file
+                Action::OpenFile => {
+                    self.dispatch(IoEvent::OpenFile).await;
+                    AppReturn::Continue
+                },
+                // Save file
+                Action::SaveFile => {
+                    self.dispatch(IoEvent::SaveFile).await;
+                    AppReturn::Continue
+                },
+                // Next file
+                Action::NextFile => {
+                    self.dispatch(IoEvent::NextFile).await;
+                    AppReturn::Continue
+                },
+                // Previous file
+                Action::PreviousFile => {
+                    self.dispatch(IoEvent::PreviousFile).await;
+                    AppReturn::Continue
+                },
+                // Close file
+                Action::CloseFile => {
+                    self.dispatch(IoEvent::CloseFile).await;
+                    AppReturn::Continue
+                },
             }
         } else {
             warn!("No action accociated to {}", key);
@@ -108,8 +135,17 @@ impl App {
     pub fn actions(&self) -> &Actions {
         &self.actions
     }
+    
     pub fn state(&self) -> &AppState {
         &self.state
+    }
+
+    pub fn open_files_data_mut(&mut self) -> &mut OpenFilesData {
+        if let AppState::Initialized { files_data, .. } = &mut self.state {
+            files_data
+        } else {
+            panic!("AppState is not Initialized");
+        }
     }
 
     pub fn is_loading(&self) -> bool {
@@ -122,6 +158,12 @@ impl App {
             Action::Quit,
             Action::BeginWriteMode,
             Action::EndWriteMode,
+            Action::OpenFile,
+            Action::SaveFile,
+            Action::NextFile,
+            Action::PreviousFile,
+            Action::CloseFile,
+            
         ]
         .into();
         self.state = AppState::initialized()

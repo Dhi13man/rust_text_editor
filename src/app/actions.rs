@@ -10,15 +10,25 @@ pub enum Action {
     Quit,
     BeginWriteMode,
     EndWriteMode,
+    OpenFile,
+    SaveFile,
+    NextFile,
+    PreviousFile,
+    CloseFile,
 }
 
 impl Action {
     /// All available actions
     pub fn iterator() -> Iter<'static, Action> {
-        static ACTIONS: [Action; 3] = [
+        static ACTIONS: [Action; 8] = [
             Action::Quit,
             Action::BeginWriteMode,
             Action::EndWriteMode,
+            Action::OpenFile,
+            Action::SaveFile,
+            Action::NextFile,
+            Action::PreviousFile,
+            Action::CloseFile,
         ];
         ACTIONS.iter()
     }
@@ -26,9 +36,14 @@ impl Action {
     /// List of key associated to action
     pub fn keys(&self) -> &[Key] {
         match self {
-            Action::Quit => &[Key::Ctrl('c'), Key::Char('q')],
+            Action::Quit => &[Key::Char('q')],
             Action::BeginWriteMode => &[Key::Char('w')],
             Action::EndWriteMode => &[Key::Ctrl('w')],
+            Action::OpenFile => &[Key::Ctrl('o')],
+            Action::SaveFile => &[Key::Ctrl('s')],
+            Action::NextFile => &[Key::Char('n')],
+            Action::PreviousFile => &[Key::Char('p')],
+            Action::CloseFile => &[Key::Ctrl('c')],
         }
     }
 }
@@ -40,6 +55,11 @@ impl Display for Action {
             Action::Quit => "Quit",
             Action::BeginWriteMode => "Begin Write Mode",
             Action::EndWriteMode => "End Write Mode",
+            Action::OpenFile => "Open File",
+            Action::SaveFile => "Save File",
+            Action::NextFile => "Next File",
+            Action::PreviousFile => "Previous File",
+            Action::CloseFile => "Close File",
         };
         write!(f, "{}", str)
     }
@@ -128,6 +148,11 @@ mod tests {
             Action::Quit,
             Action::BeginWriteMode,
             Action::EndWriteMode,
+            Action::OpenFile,
+            Action::SaveFile,
+            Action::NextFile,
+            Action::PreviousFile,
+            Action::CloseFile,
         ]
         .into();
     }
@@ -139,6 +164,11 @@ mod tests {
             Action::Quit,
             Action::BeginWriteMode,
             Action::EndWriteMode,
+            Action::OpenFile,
+            Action::SaveFile,
+            Action::NextFile,
+            Action::PreviousFile,
+            Action::CloseFile,
         ]
         .into();
     }
