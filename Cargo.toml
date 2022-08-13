@@ -9,10 +9,10 @@ repository = "https://github.com/Dhi13man/rust_text_editor"
 [dependencies]
 log = "0.4"
 
-tui-logger = "0.7"
+tui-logger = "0.8.0"
+tui = "0.18.0"
 
-tui = "0.17"
-crossterm = "0.23"
+crossterm = "0.24.0"
 tokio = { version = "1", features = ["full"] }
 
 eyre = "0.6"

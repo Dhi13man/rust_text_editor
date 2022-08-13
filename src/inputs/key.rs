@@ -5,6 +5,7 @@ use crossterm::event;
 /// Represents an key.
 #[derive(PartialEq, Eq, Clone, Copy, Hash, Debug)]
 pub enum Key {
+    Space,
     /// Both Enter (or Return) and numpad Enter
     Enter,
     /// Tabulation key
@@ -107,6 +108,7 @@ impl Display for Key {
             Key::Alt(' ') => write!(f, "<Alt+Space>"),
             Key::Ctrl(' ') => write!(f, "<Ctrl+Space>"),
             Key::Char(' ') => write!(f, "<Space>"),
+            Key::Space => write!(f, "<Space>"),
             Key::Alt(c) => write!(f, "<Alt+{}>", c),
             Key::Ctrl(c) => write!(f, "<Ctrl+{}>", c),
             Key::Char(c) => write!(f, "<{}>", c),
@@ -122,6 +124,10 @@ impl From<event::KeyEvent> for Key {
                 code: event::KeyCode::Esc,
                 ..
             } => Key::Esc,
+            event::KeyEvent {
+                code: event::KeyCode::Char(' '),
+                ..
+            } => Key::Space,
             event::KeyEvent {
                 code: event::KeyCode::Backspace,
                 ..

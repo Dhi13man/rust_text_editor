@@ -2,12 +2,10 @@ use log::{debug, error, warn};
 
 use self::actions::Actions;
 use self::state::AppState;
-use self::utils::word_wrap;
 use crate::app::actions::Action;
 use crate::inputs::key::Key;
 use crate::io::IoEvent;
 
-pub mod utils;
 pub mod actions;
 pub mod state;
 pub mod ui;
@@ -69,18 +67,29 @@ impl App {
     }
 
     fn attempt_write(&mut self, key: Key) -> Option<AppReturn> {
-        let key_char: char = if let Key::Char(c) = key { c } else { '\0' };
-        if self.state.is_write_mode() && key == Key::Backspace {
+        if self.state.is_write_mode() {
             let mut curr_text = self.state.get_text();
-            curr_text.pop();
-            self.state.replace_text(&curr_text);
-            Some(AppReturn::Continue)
-        } else if self.state.is_write_mode() && key_char != '\0' {
-            let mut curr_text = self.state.get_text();
-            curr_text.push(key_char);
-            curr_text = word_wrap(&curr_text, 100);
-            self.state.replace_text(&curr_text);
-            Some(AppReturn::Continue)
+            match key {
+                Key::Backspace => {
+                    curr_text.pop();
+                    self.state.replace_text(&curr_text);
+                    Some(AppReturn::Continue)
+                },
+
+                Key::Space => {
+                    curr_text.push(' ');
+                    self.state.replace_text(&curr_text);
+                    Some(AppReturn::Continue)
+                },
+
+                Key::Char(key_char) => {
+                    curr_text.push(key_char);
+                    self.state.replace_text(&curr_text);
+                    Some(AppReturn::Continue)
+                },
+
+                _ => None,
+            }
         } else {
             None
         }

@@ -2,7 +2,7 @@ use tui::backend::Backend;
 use tui::layout::{Alignment, Constraint, Direction, Layout, Rect};
 use tui::style::{Color, Style};
 use tui::text::{Span, Spans};
-use tui::widgets::{Block, BorderType, Borders, Cell, Paragraph, Row, Table};
+use tui::widgets::{Block, BorderType, Borders, Cell, Paragraph, Row, Table, Wrap};
 use tui::{Frame};
 use tui_logger::TuiLoggerWidget;
 
@@ -91,7 +91,7 @@ fn draw_body<'a>(loading: bool, state: &AppState) -> Paragraph<'a> {
             .borders(Borders::ALL)
             .style(Style::default().fg(Color::White))
             .border_type(BorderType::Plain),
-    )
+    ).wrap(Wrap { trim: true } )
 }
 
 fn draw_help(actions: &Actions) -> Table {

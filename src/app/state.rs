@@ -11,7 +11,7 @@ pub enum AppState {
 impl AppState {
     pub fn initialized() -> Self {
         Self::Initialized {
-            text: "".to_owned(),
+            text: " ".to_owned(),
             write_mode: false,
         }
     }
@@ -35,7 +35,7 @@ impl AppState {
             Self::Initialized { text, write_mode } => {
                 if !*write_mode {
                     let mut out: String = text.to_owned();
-                    out.push_str(" (input mode)");
+                    out.push_str("(input mode)");
                     out
                 } else {
                     text.to_owned()
