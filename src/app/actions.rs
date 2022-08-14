@@ -15,12 +15,16 @@ pub enum Action {
     NextFile,
     PreviousFile,
     CloseFile,
+    ScrollDown,
+    ScrollUp,
+    ScrollLeft,
+    ScrollRight,
 }
 
 impl Action {
     /// All available actions
     pub fn iterator() -> Iter<'static, Action> {
-        static ACTIONS: [Action; 8] = [
+        static ACTIONS: [Action; 12] = [
             Action::Quit,
             Action::BeginWriteMode,
             Action::EndWriteMode,
@@ -29,8 +33,16 @@ impl Action {
             Action::NextFile,
             Action::PreviousFile,
             Action::CloseFile,
+            Action::ScrollDown,
+            Action::ScrollUp,
+            Action::ScrollLeft,
+            Action::ScrollRight,
         ];
         ACTIONS.iter()
+    }
+
+    pub fn values() -> Vec<Action> {
+        Action::iterator().cloned().collect()
     }
 
     /// List of key associated to action
@@ -44,6 +56,10 @@ impl Action {
             Action::NextFile => &[Key::Char('n')],
             Action::PreviousFile => &[Key::Char('p')],
             Action::CloseFile => &[Key::Ctrl('c')],
+            Action::ScrollDown => &[Key::Down],
+            Action::ScrollUp => &[Key::Up],
+            Action::ScrollLeft => &[Key::Left],
+            Action::ScrollRight => &[Key::Right],
         }
     }
 }
@@ -60,6 +76,10 @@ impl Display for Action {
             Action::NextFile => "Next File",
             Action::PreviousFile => "Previous File",
             Action::CloseFile => "Close File",
+            Action::ScrollDown => "Scroll Down",
+            Action::ScrollUp => "Scroll Up",
+            Action::ScrollLeft => "Scroll Left",
+            Action::ScrollRight => "Scroll Right",
         };
         write!(f, "{}", str)
     }
@@ -153,6 +173,10 @@ mod tests {
             Action::NextFile,
             Action::PreviousFile,
             Action::CloseFile,
+            Action::ScrollDown,
+            Action::ScrollUp,
+            Action::ScrollLeft,
+            Action::ScrollRight,
         ]
         .into();
     }
@@ -169,6 +193,10 @@ mod tests {
             Action::NextFile,
             Action::PreviousFile,
             Action::CloseFile,
+            Action::ScrollDown,
+            Action::ScrollUp,
+            Action::ScrollLeft,
+            Action::ScrollRight,
         ]
         .into();
     }

@@ -86,6 +86,26 @@ impl App {
                     self.dispatch(IoEvent::CloseFile).await;
                     AppReturn::Continue
                 },
+                // Scroll down
+                Action::ScrollDown => {
+                    self.dispatch(IoEvent::ScrollDown).await;
+                    AppReturn::Continue
+                },
+                // Scroll up
+                Action::ScrollUp => {
+                    self.dispatch(IoEvent::ScrollUp).await;
+                    AppReturn::Continue
+                },
+                // Scroll left
+                Action::ScrollLeft => {
+                    self.dispatch(IoEvent::ScrollLeft).await;
+                    AppReturn::Continue
+                },
+                // Scroll right
+                Action::ScrollRight => {
+                    self.dispatch(IoEvent::ScrollRight).await;
+                    AppReturn::Continue
+                },
             }
         } else {
             warn!("No action accociated to {}", key);
@@ -154,18 +174,7 @@ impl App {
 
     pub fn initialized(&mut self) {
         // Update contextual actions
-        self.actions = vec![
-            Action::Quit,
-            Action::BeginWriteMode,
-            Action::EndWriteMode,
-            Action::OpenFile,
-            Action::SaveFile,
-            Action::NextFile,
-            Action::PreviousFile,
-            Action::CloseFile,
-            
-        ]
-        .into();
+        self.actions = Action::values().into();
         self.state = AppState::initialized()
     }
 
@@ -175,5 +184,17 @@ impl App {
 
     pub fn toggle_write_mode(&mut self, new_write_mode: bool) {
         self.state.toggle_write_mode(new_write_mode);
+    }
+
+    pub fn scroll_horizontal(&mut self, delta: i32) -> Result<(), String> {
+        self.state.scroll_horizontal(delta)
+    }
+
+    pub fn scroll_vertical(&mut self, delta: i32) -> Result<(), String> {
+        self.state.scroll_vertical(delta)
+    }
+
+    pub fn reset_scroll(&mut self) {
+        self.state.reset_scroll();
     }
 }

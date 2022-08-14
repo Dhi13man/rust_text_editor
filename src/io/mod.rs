@@ -9,5 +9,9 @@ pub enum IoEvent {
     NextFile,        // Go to next file
     PreviousFile,    // Go to previous file
     CloseFile,      // Close the current file
+    ScrollDown,      // Scroll down
+    ScrollUp,        // Scroll up
+    ScrollLeft,      // Scroll left
+    ScrollRight,     // Scroll right
 }
  

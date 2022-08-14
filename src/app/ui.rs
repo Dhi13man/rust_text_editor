@@ -78,25 +78,26 @@ fn check_size(rect: &Rect) {
 }
 
 fn draw_body<'a>(loading: bool, state: &AppState) -> Paragraph<'a> {
-    let initialized_text = if state.is_initialized() {
+    let initialized_text = if !loading && state.is_initialized() {
         state.get_text().to_owned()
     } else {
-        "Not Initialized !".to_owned()
+        "..loading".to_owned()
     };
-    let loading_text = if loading { "Loading..." } else { "" };
-    Paragraph::new(vec![
-        Spans::from(Span::raw(initialized_text)),
-        Spans::from(Span::raw(loading_text)),
-    ])
-    .style(Style::default().fg(Color::LightCyan))
-    .alignment(Alignment::Left)
-    .block(
-        Block::default()
-            // .title("Body")
-            .borders(Borders::ALL)
-            .style(Style::default().fg(Color::White))
-            .border_type(BorderType::Plain),
-    ).wrap(Wrap { trim: true } )
+
+    // Split text into lines
+    let text: Vec<Spans> = initialized_text.lines()
+                            .map(|line| Spans::from(Span::raw(line.to_owned())))
+                            .collect();
+    Paragraph::new(text)
+        .style(Style::default().fg(Color::LightCyan))
+        .alignment(Alignment::Left)
+        .block(
+            Block::default()
+                .borders(Borders::ALL)
+                .style(Style::default().fg(Color::White))
+                .border_type(BorderType::Plain),
+        ).wrap(Wrap { trim: true } )
+        .scroll(state.get_scroll_offset().clone())
 }
 
 fn draw_help(actions: &Actions) -> Table {

@@ -27,6 +27,10 @@ impl IoAsyncHandler {
             IoEvent::NextFile => self.next_file().await,
             IoEvent::PreviousFile => self.previous_file().await,
             IoEvent::CloseFile => self.close_file().await,
+            IoEvent::ScrollDown => self.scroll_vertical(1).await,
+            IoEvent::ScrollUp => self.scroll_vertical(-1).await,
+            IoEvent::ScrollLeft => self.scroll_horizontal(-1).await,
+            IoEvent::ScrollRight => self.scroll_horizontal(1).await,
         };
 
         if let Err(err) = result {
@@ -114,12 +118,48 @@ impl IoAsyncHandler {
     /// Next file
     async fn next_file(&mut self) -> Result<()> {
         let mut app = self.app.lock().await;
-        Ok(app.open_files_data_mut().select_next_file())
+        app.open_files_data_mut().select_next_file();
+        app.reset_scroll();
+        Ok(())
     }
 
     /// Previous file
     async fn previous_file(&mut self) -> Result<()> {
         let mut app = self.app.lock().await;
-        Ok(app.open_files_data_mut().select_previous_file())
+        app.open_files_data_mut().select_previous_file();
+        app.reset_scroll();
+        Ok(())
+    }
+
+    /// Scroll vertical
+    /// direction: 1 for down, -1 for up
+    async fn scroll_vertical(&mut self, direction: i32) -> Result<()> {
+        let mut app = self.app.lock().await;
+        match app.scroll_horizontal(direction) {
+            Ok(()) => {
+                info!("↨ Scrolled vertical. Current Scroll Offset: {}", direction);
+                Ok(())
+            },
+            Err(err) => {
+                error!("Failed to scroll vertical: {}", err);
+                Ok(())
+            }
+        }
+    }
+
+    /// Scroll horizontal
+    /// direction: 1 for right, -1 for left
+    async fn scroll_horizontal(&mut self, direction: i32) -> Result<()> {
+        let mut app = self.app.lock().await;
+        match app.scroll_horizontal(direction) {
+            Ok(()) => {
+                info!("🔛 Scrolled horizontal. Current Scroll Offset: {}", direction);
+                Ok(())
+            },
+            Err(err) => {
+                error!("Failed to scroll horizonta: {}", err);
+                Ok(())
+            }
+        }
     }
 }
