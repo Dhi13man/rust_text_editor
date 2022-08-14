@@ -71,7 +71,7 @@ impl Display for Action {
             Action::Quit => "Quit",
             Action::BeginWriteMode => "Begin Write Mode",
             Action::EndWriteMode => "End Write Mode",
-            Action::OpenFile => "Open File",
+            Action::OpenFile => "Open Copied File",
             Action::SaveFile => "Save File",
             Action::NextFile => "Next File",
             Action::PreviousFile => "Previous File",
