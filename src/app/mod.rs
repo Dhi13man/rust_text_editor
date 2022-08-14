@@ -123,6 +123,12 @@ impl App {
                     Some(AppReturn::Continue)
                 },
 
+                Key::Enter => {
+                    curr_text.push('\n');
+                    self.state.replace_text(&curr_text);
+                    Some(AppReturn::Continue)
+                },
+
                 Key::Space => {
                     curr_text.push(' ');
                     self.state.replace_text(&curr_text);
