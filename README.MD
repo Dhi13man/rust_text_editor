@@ -16,6 +16,8 @@ Creation of a Rust-backed text editor that supports certain Vim like commands. B
 
 2. Execute `cargo run`.
 
+3. Follow the commands in the Help Section. To open files, copy their path into your clipboard and hit `Ctrl + O`.
+
 ## Features
 
 - Basic TUI Setup.
