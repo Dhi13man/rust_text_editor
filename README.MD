@@ -2,10 +2,19 @@
 
 Creation of a Rust-backed text editor that supports certain Vim like commands. Built as a part of a Hackathon.
 
+## Installation and Contribution
+
+1. Ensure you have [Rust](https://www.rust-lang.org/tools/install) SDK installed.
+
+2. Clone this repository and CD into it.
+
+3. Please view the [Contrbution Guidelines](https://raw.githubusercontent.com/Dhi13man/rust_text_editor/master/CONTRIBUTING.MD) here to know how you can contribute to this.
+
 ## Usage
 
-1. Clone the repository.
-2. CD into the repository and execute `cargo run`.
+1. Clone the repository and CD into it.
+
+2. Execute `cargo run`.
 
 ## Features
 
@@ -20,4 +29,27 @@ Creation of a Rust-backed text editor that supports certain Vim like commands. B
 
 ## Acknowledgement
 
+## ilaborie/plop-tui
+
 This project is built on top of [plop-tui](https://github.com/ilaborie/plop-tui) to implement generic features of a CLI based Code editor.
+
+## Dependencies
+
+The project utilizes various open-source Cargo Crate dependencies to work. Big thanks to all the creators.
+
+```toml
+log = "0.4"
+
+copypasta = "0.8.1"
+
+names = { version = "0.14.0", default-features = false }
+
+tui-logger = "0.8.0"
+tui = "0.18.0"
+
+crossterm = "0.24.0"
+
+tokio = { version = "1", features = ["full"] }
+
+eyre = "0.6"
+```
