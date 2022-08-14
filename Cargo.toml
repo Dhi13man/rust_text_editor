@@ -8,11 +8,16 @@ repository = "https://github.com/Dhi13man/rust_text_editor"
 
 [dependencies]
 log = "0.4"
+
 copypasta = "0.8.1"
+
+names = { version = "0.14.0", default-features = false }
+
 tui-logger = "0.8.0"
 tui = "0.18.0"
 
 crossterm = "0.24.0"
+
 tokio = { version = "1", features = ["full"] }
 
 eyre = "0.6"

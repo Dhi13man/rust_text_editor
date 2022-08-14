@@ -106,13 +106,16 @@ impl OpenFilesData {
         }
     }
 
-    pub fn save_file(&self) -> Result<(), String> {
+    pub fn save_file(&mut self) -> Result<(), String> {
+        let file_content = self.file_contents[self.currently_selected_file_index].clone();
         if self.currently_selected_file_index < self.file_paths.len() {
             let file_path = self.file_paths[self.currently_selected_file_index].clone();
-            let file_content = self.file_contents[self.currently_selected_file_index].clone();
             std::fs::write(&file_path, file_content).map_err(|e| format!("Error while writing file {}: {}", file_path, e))
         } else {
-            Err("No file to save".to_owned())
+            let random_file_name: String = names::Generator::default().next().unwrap();
+            // Take file path input from user
+            self.file_paths.push(random_file_name.clone());
+            std::fs::write(&random_file_name, file_content).map_err(|e| format!("Error while writing file {}: {}", random_file_name, e))
         }
     }
 }
