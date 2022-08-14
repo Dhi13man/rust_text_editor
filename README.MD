@@ -29,11 +29,11 @@ Creation of a Rust-backed text editor that supports certain Vim like commands. B
 
 ## Acknowledgement
 
-## ilaborie/plop-tui
+### ilaborie/plop-tui
 
 This project is built on top of [plop-tui](https://github.com/ilaborie/plop-tui) to implement generic features of a CLI based Code editor.
 
-## Dependencies
+### Dependencies
 
 The project utilizes various open-source Cargo Crate dependencies to work. Big thanks to all the creators.
 
