@@ -137,7 +137,7 @@ impl IoAsyncHandler {
         let mut app = self.app.lock().await;
         match app.scroll_horizontal(direction) {
             Ok(()) => {
-                info!("↨ Scrolled vertical. Current Scroll Offset: {}", direction);
+                info!("↨ Scrolled vertical. Current Scroll Offset: {:?}", app.state().get_scroll_offset());
                 Ok(())
             },
             Err(err) => {
@@ -153,7 +153,7 @@ impl IoAsyncHandler {
         let mut app = self.app.lock().await;
         match app.scroll_horizontal(direction) {
             Ok(()) => {
-                info!("🔛 Scrolled horizontal. Current Scroll Offset: {}", direction);
+                info!("🔛 Scrolled horizontal. Current Scroll Offset: {:?}", app.state().get_scroll_offset());
                 Ok(())
             },
             Err(err) => {
