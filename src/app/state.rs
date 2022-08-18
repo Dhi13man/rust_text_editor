@@ -54,7 +54,7 @@ impl AppState {
         }
     }
 
-    pub fn get_path(&self) -> String {
+    pub fn get_path(&mut self) -> String {
         match self {
             Self::Initialized { files_data, .. } => files_data.get_currently_selected_file_path(),
             _ => "..loading..".to_owned(),

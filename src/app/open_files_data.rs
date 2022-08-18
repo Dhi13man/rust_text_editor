@@ -77,15 +77,17 @@ impl OpenFilesData {
         }
     }
 
-    pub fn get_currently_selected_file_path(&self) -> String {
+    pub fn get_currently_selected_file_path(&mut self) -> String {
         if self.currently_selected_file_index < self.file_paths.len() {
             self.file_paths[self.currently_selected_file_index].clone()
         } else {
-            "/(unsaved)".to_owned()
+            let random_file_name: String = names::Generator::default().next().unwrap();
+            self.file_paths.push(random_file_name.clone());
+            random_file_name
         }
     }
 
-    pub fn get_currently_selected_file_name(&self) -> String {
+    pub fn get_currently_selected_file_name(&mut self) -> String {
         let path = self.get_currently_selected_file_path();
         path.split("/").last().unwrap().to_owned()
     }
