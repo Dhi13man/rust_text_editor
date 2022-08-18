@@ -58,14 +58,14 @@ eyre = "0.6"
 
 ## Screenshots
 
+| Editor Initialized |
+| :---: |
 | ![Editor Initialized](https://raw.githubusercontent.com/Dhi13man/rust_text_editor/master/assets/screenshots/Editor_Initialized.png) |
-| ----------------------------------------------------------------------------------------------------------------------------------- |
-| Editor Initialized                                                                                                                  |
 
+| Editor Write Mode |
+| :---: |
 | ![Editor Write Mode](https://raw.githubusercontent.com/Dhi13man/rust_text_editor/master/assets/screenshots/Editor_Write_Mode.png) |
-| --------------------------------------------------------------------------------------------------------------------------------- |
-| Editor Write Mode                                                                                                                 |
 
+| Full Functionality With Multiple Files |
+| :---: |
 | ![Full Functionality With Multiple Files](https://raw.githubusercontent.com/Dhi13man/rust_text_editor/master/assets/screenshots/Full_Functionality_Multiple_Files.png) |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Full Functionality With Multiple Files                                                                                                                                 |
