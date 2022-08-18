@@ -24,7 +24,7 @@ Creation of a Rust-backed text editor that supports certain Vim like commands. B
 - Proper Logs at all times
 - User Friendly Help Menu
 - Create Random Files
-- Open Multiple Files whose path is saved to your Clipboard
+- Open Multiple Files from the file paths saved in your Clipboard
 - Edit Files, Save Files
 - Word Wrap and Responsive UI
 - Scrollable UI
