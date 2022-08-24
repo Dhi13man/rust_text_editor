@@ -1,5 +1,11 @@
 # Rust Text Editor
 
+[![License](https://img.shields.io/github/license/dhi13man/rust_text_editor)](https://github.com/Dhi13man/rust_text_editor/blob/main/LICENSE)
+[![Contributors](https://img.shields.io/github/contributors-anon/dhi13man/rust_text_editor?style=flat)](https://github.com/Dhi13man/rust_text_editor/graphs/contributors)
+[![GitHub forks](https://img.shields.io/github/forks/dhi13man/rust_text_editor?style=social)](https://github.com/Dhi13man/rust_text_editor/network/members)
+[![GitHub Repo stars](https://img.shields.io/github/stars/dhi13man/rust_text_editor?style=social)](https://github.com/Dhi13man/rust_text_editor)
+[![Last Commit](https://img.shields.io/github/last-commit/dhi13man/rust_text_editor)](https://github.com/Dhi13man/rust_text_editor/commits/main)
+
 Creation of a Rust-backed text editor that supports certain Vim like commands. Built as a part of a Hackathon.
 
 ## Installation and Contribution
