@@ -34,12 +34,12 @@ Creation of a Rust-backed text editor that supports certain Vim like commands. B
 - Word Wrap and Responsive UI
 - Scrollable UI
 
-## Bugs and Open Issues (Feel Free to Contribute Fixes)
+## Inital Bugs and Open Issues (Feel Free to Contribute Fixes)
 
-- Unoptimized: The Editor has virtually no optimization
-- No Inuitive File Opener System: It can only open files when you copy the path to the files in your clipboard and hit the relevant shortcut
-- A Mess: Code works, but is not organised too well
-- Frontend: The UI could probably be improved
+- [ ] Unoptimized: The Editor has virtually no optimization
+- [ ] No Inuitive File Opener System: It can only open files when you copy the path to the files in your clipboard and hit the relevant shortcut
+- [ ] A Mess: Code works, but is not organised too well
+- [ ] Frontend: The UI could probably be improved
 
 ## Acknowledgement
 
