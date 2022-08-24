@@ -6,7 +6,7 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/dhi13man/rust_text_editor?style=social)](https://github.com/Dhi13man/rust_text_editor)
 [![Last Commit](https://img.shields.io/github/last-commit/dhi13man/rust_text_editor)](https://github.com/Dhi13man/rust_text_editor/commits/main)
 
-Creation of a Rust-backed text editor that supports certain Vim like commands. Built as a part of a Hackathon.
+Creation of a Rust-backed text editor that supports certain Vim like commands. Built in 6-ish as a part of a Hackathon.
 
 ## Installation and Contribution
 
@@ -26,14 +26,20 @@ Creation of a Rust-backed text editor that supports certain Vim like commands. B
 
 ## Features
 
-- Basic TUI Setup.
+- Basic TUI Setup
 - Proper Logs at all times
 - User Friendly Help Menu
 - Create Random Files
-- Open Multiple Files from the file paths saved in your Clipboard
-- Edit Files, Save Files
+- Edit Files, Save Files, Open Multiple Files from the file paths saved in your Clipboard
 - Word Wrap and Responsive UI
 - Scrollable UI
+
+## Bugs and Open Issues (Feel Free to Contribute Fixes)
+
+- Unoptimized: The Editor has virtually no optimization
+- No Inuitive File Opener System: It can only open files when you copy the path to the files in your clipboard and hit the relevant shortcut
+- A Mess: Code works, but is not organised too well.
+- Frontend: The UI could probably be improved
 
 ## Acknowledgement
 
