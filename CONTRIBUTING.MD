@@ -1,10 +1,10 @@
 # rust_text_editor
 
-[![License](https://img.shields.io/github/license/dhi13man/open_route_service)](https://github.com/Dhi13man/rust_text_editor/blob/main/LICENSE)
-[![Contributors](https://img.shields.io/github/contributors-anon/dhi13man/open_route_service?style=flat)](https://github.com/Dhi13man/rust_text_editor/graphs/contributors)
-[![GitHub forks](https://img.shields.io/github/forks/dhi13man/open_route_service?style=social)](https://github.com/Dhi13man/rust_text_editor/network/members)
-[![GitHub Repo stars](https://img.shields.io/github/stars/dhi13man/open_route_service?style=social)](https://github.com/Dhi13man/rust_text_editor)
-[![Last Commit](https://img.shields.io/github/last-commit/dhi13man/open_route_service)](https://github.com/Dhi13man/rust_text_editor/commits/main)
+[![License](https://img.shields.io/github/license/dhi13man/rust_text_editor)](https://github.com/Dhi13man/rust_text_editor/blob/main/LICENSE)
+[![Contributors](https://img.shields.io/github/contributors-anon/dhi13man/rust_text_editor?style=flat)](https://github.com/Dhi13man/rust_text_editor/graphs/contributors)
+[![GitHub forks](https://img.shields.io/github/forks/dhi13man/rust_text_editor?style=social)](https://github.com/Dhi13man/rust_text_editor/network/members)
+[![GitHub Repo stars](https://img.shields.io/github/stars/dhi13man/rust_text_editor?style=social)](https://github.com/Dhi13man/rust_text_editor)
+[![Last Commit](https://img.shields.io/github/last-commit/dhi13man/rust_text_editor)](https://github.com/Dhi13man/rust_text_editor/commits/main)
 
 Thank you for investing your time in contributing to this project! Although it is pretty bare bones, any contributions you make will brighten up my day. :)
 
