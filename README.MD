@@ -81,3 +81,11 @@ eyre = "0.6"
 | Full Functionality With Multiple Files |
 | :---: |
 | ![Full Functionality With Multiple Files](https://raw.githubusercontent.com/Dhi13man/rust_text_editor/master/assets/screenshots/Full_Functionality_Multiple_Files.png) |
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+See [LICENSE](LICENSE).
